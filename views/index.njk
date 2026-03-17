@@ -1,0 +1,24 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<div id="sketch-container"
+     style="width:100vw; height:100vh; display:flex; justify-content:center; align-items:center;">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+<script src="/js/sketch.js"></script>
+
+<audio id="heartbeat" loop preload="auto">
+  <source src="/assets/heartbeat.m4a" type="audio/mp4">
+</audio>
+
+<script>
+  const heartbeat = document.getElementById("heartbeat");
+
+  // browsers allow play after user interaction
+  window.addEventListener("click", () => {
+    heartbeat.play();
+  }, { once: true });
+</script>
+
+{% endblock %}
