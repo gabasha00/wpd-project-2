@@ -7,10 +7,19 @@ let queryInterval = 15000;
 let currentIndex = 0; // index in waveValues array
 let cycleSpeed = 1;
 
+let locationParam = "default";
+
+function getLocation() {
+  const params = new URLSearchParams(window.location.search);
+  locationParam = params.get("location") || "default";
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   frameRate(60);
   noStroke();
+
+  getLocation();
 
   getWaveData();
   setInterval(getWaveData, queryInterval);
@@ -40,7 +49,7 @@ function draw() {
 
 async function getWaveData() {
   try {
-    const res = await fetch("/api/waves");
+    const res = await fetch(`/api/waves?location=${locationParam}`);
     const text = await res.text();
 
     const lines = text.split("\n");

@@ -25,9 +25,22 @@ app.get("/index", (req, res) => {
 // waves api endpoint
 app.get("/api/waves", async (req, res) => {
   try {
+    const location = req.query.location || "default";
+
+    let buoy;
+
+    if (location === "honolulu") {
+      buoy = "51201";
+    } else if (location === "gulf-of-mexico") {
+      buoy = "42002";
+    } else {
+      buoy = "46026"; // San Francisco / Alcatraz region
+    }
+
     const response = await fetch(
-      "https://www.ndbc.noaa.gov/data/realtime2/51101.txt",
+      `https://www.ndbc.noaa.gov/data/realtime2/${buoy}.txt`,
     );
+
     const text = await response.text();
     res.send(text);
   } catch (error) {
