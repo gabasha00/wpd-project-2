@@ -29,7 +29,7 @@ function waveData(text) {
     console.log("Wave history loaded:", waveHistory.length);
 }
 
-//Function for USGS earthquake data <- add it under this comment for tokyo
+//Function for USGS earthquake data <- add it under this comment for San Francisco
 function earthquakeData(data) {
     // data.features is an array of earthquakes from USGS
     data.features.forEach(eq => {
@@ -47,15 +47,15 @@ function setup() {
     cnv.parent("ekg"); //Attach canvas to the div
     ekgLine = height / 2; //Positions the EKG line
 
-    //Fetch wave data for Tokyo
-    fetch("/api/waves?location=tokyo")
+    //Fetch wave data for San Francisco
+    fetch("/api/waves?location=san-francisco")
         .then(res => res.text())
         .then(data => {
             waveData(data);
         });
 
-    //Fetch earthquake data for Tokyo
-    fetch("/api/earthquakes?location=tokyo")
+    //Fetch earthquake data for San Francisco
+    fetch("/api/earthquakes?location=san-francisco")
         .then(res => res.json())
         .then(data => {
             earthquakeData(data);
