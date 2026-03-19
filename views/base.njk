@@ -2,65 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Breathing Earth</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: black;
-      color: green;
-      font-family: Arial, sans-serif;
-      flex-direction: column;
-    }
-    h1 { font-size: 2em; margin: 0; }
-    a.enter-btn {
-      margin-top: 30px;
-      padding: 10px 20px;
-      background: dark blue;
-      color: green;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-    }
+  <link rel="stylesheet" href="/css/style.css">
 
-    .landing-container {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-    }
+  <!-- Google font links -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
 
-    .wave-source {
-      text-align: center;
-    }
+  <title>The Earth is Breathing</title>
 
-    .wave-label {
-      font-size: 14px;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-      opacity: 0.7;
-    }
-
-    .wave-buttons {
-      display: flex;
-      gap: 20px;
-    }
-
-    .location-btn {
-      text-decoration: none;
-      padding: 8px 16px;
-      border: 1px solid white;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-  </style>
 </head>
 <body>
+   <header>
+   <h1 class="wavy">THE EARTH IS BREATHING</h1>
+   <p class="sub-head">A project by Kris, Gabrielle and Scott</p>
+   </header>
+
   {% block content %}{% endblock %}
+  <script src="/js/wave.js"></script>
 </body>
 </html>

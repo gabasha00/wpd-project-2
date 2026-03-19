@@ -10,6 +10,7 @@ app.use(express.static("public")); // serve static files
 nunjucks.configure("views", {
   autoescape: true,
   express: app,
+  noCache: true
 });
 
 // Landing page
