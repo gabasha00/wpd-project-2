@@ -53,10 +53,23 @@ app.get("/api/waves", async (req, res) => {
 // earthquakes api endpoint
 app.get("/api/earthquakes", async (req, res) => {
   try {
-    const response = await fetch(
-      "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson",
-    );
+    const location = req.query.location || "san-francisco"
 
+    //API uses minimum and maximum latitude and longitude values for locations.
+    let minlat, maxlat, minlon, maxlon;
+
+    //This makes sure to specifically target the three locations we are using
+    if (location === "honolulu") {
+      minlat = 21; maxlat = 21.5; minlon = -158.5; maxlon = -157.5;
+    } else if  (location === "tokyo") {
+      minlat = 35.5; maxlat = 36; minlon = 139; maxlon = 140;
+    } else {
+      minlat = 37; maxlat = 39; minlon = -123; maxlon = -121;
+    }
+
+    //Updated URL that uses the latitude and longitude specifications
+    const url = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minlatitude=${minlat}&maxlatitude=${maxlat}&minlongitude=${minlon}&maxlongitude=${maxlon}`;
+    const response = await fetch(url);
     const data = await response.json();
 
     res.json(data);
