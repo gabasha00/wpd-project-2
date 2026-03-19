@@ -32,8 +32,8 @@ app.get("/api/waves", async (req, res) => {
 
     if (location === "honolulu") {
       buoy = "51201";
-    } else if (location === "gulf-of-mexico") {
-      buoy = "42002";
+    } else if (location === "tokyo") {
+      buoy = "21413";
     } else {
       buoy = "46026"; // San Francisco / Alcatraz region
     }
