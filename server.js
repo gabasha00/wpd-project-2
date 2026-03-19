@@ -23,6 +23,17 @@ app.get("/index", (req, res) => {
   res.render("index.njk");
 });
 
+//Individual location pages
+app.get("/honolulu", (req, res) => {
+  res.render("honolulu.njk")
+});
+app.get("/tokyo", (req, res) => {
+  res.render("tokyo.njk")
+});
+app.get("/sf", (req, res) => {
+  res.render("sf.njk")
+});
+
 // waves api endpoint
 app.get("/api/waves", async (req, res) => {
   try {
