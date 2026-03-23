@@ -1,0 +1,96 @@
+    body {
+      margin: 0;
+      background: #cbf7f5;
+      color: black;
+    }
+
+    h1 {
+      width: 100%;
+      padding: 10px;
+      margin-left: 20px;
+      font-size: 50px;
+      font-family: "Martian Mono", monospace;
+    }
+
+    .sub-head {
+      width: 100%;
+      margin-left: 30px;
+      font-size: 20px;
+      font-family: "Martian Mono", monospace;
+    }
+
+    .wavy span {
+      display: inline-block;
+      animation: wave 4s infinite ease-in-out;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .earth {
+      margin-top: -200px;
+      width: 300px;
+    }
+
+    .spin {
+      animation: spinning 25s linear infinite;
+    }
+
+    @keyframes spinning {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    a.enter-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    .landing-container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .wave-source {
+      text-align: center;
+    }
+
+    .wave-label {
+      width: 100%;
+      font-size: 30px;
+      font-family: "Martian Mono", monospace;
+    }
+
+    .wave-buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .location-btn {
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-family: "Martian Mono", monospace;
+      font-size: 20px;
+    }
+
+    /* Individual styling tags for each location page */
+    .wave-title{
+      margin-left: 20px;
+      font-size: 40px;
+      font-family: "Martian Mono", monospace;
+    }
