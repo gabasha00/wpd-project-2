@@ -23,6 +23,11 @@ app.get("/index", (req, res) => {
   res.render("index.njk");
 });
 
+// About page
+app.get("/about", (req, res) => {
+  res.render("about.njk");
+});
+
 //Individual location pages
 app.get("/honolulu", (req, res) => {
   res.render("honolulu.njk")

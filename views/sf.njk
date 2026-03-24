@@ -1,13 +1,47 @@
 {% extends "base.njk" %}
 
 {% block content %}
+<section class="location-page">
 
+  <nav class="page-nav">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/tokyo">Tokyo</a>
+    <a href="/honolulu">Honolulu</a>
+  </nav>
 <p class="wave-title">San Francisco</p>
 <div id="ekg"></div>
+<div class="data-info">
+   <p class="data-line ocean-label">Ocean Data</p>
+  <p class="data-line quake-label">Seismic Activity Data</p>
+</div>
+<div class="facts-container">
+<button class="facts-btn">Facts <span class="facts-arrow">&#x25BE;</span></button>
 
+  <div class="facts-content">
+    <p>1,600-square-mile tidal estuary in Northern California, acting as the largest estuary on the West Coast.</p>
+
+    <p>San Francisco sits directly on the San Andreas Fault system, a massive network of fractures where tectonic plates slowly grind past each other, building pressure over time. there is 72% chance of a magnitude 6.7 or greater earthquake occurring in the Bay Area by 2043.</p>
+  </div>
+</div>
 <!-- Link to p5, make sure this is in every location.njk file -->
 <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
 <script src="/js/sf-lines.js"></script>
 
+<script>
+  const btn = document.querySelector(".facts-btn");
+  const content = document.querySelector(".facts-content");
+  const arrow = document.querySelector(".facts-arrow");
+
+  btn.addEventListener("click", function () {
+    if (content.style.display == "block") {
+      content.style.display = "none";
+      arrow.innerHTML = "&#x25BE;";
+    } else {
+      content.style.display = "block";
+      arrow.innerHTML = "&#x25B4;";
+    }
+  });
+</script>
 
 {% endblock %}

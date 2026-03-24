@@ -66,7 +66,7 @@ function draw() {
     clear();
     
     //Wave line styling
-    stroke(3, 26, 28);
+   stroke(29, 120, 116); 
     strokeWeight(3);
     noFill();
     
@@ -106,7 +106,7 @@ function draw() {
     }
 
     //Draw earthquake line
-    stroke(3, 26, 28); //Keep same color as wave line
+    stroke(242, 95, 92);
     strokeWeight(3);
     beginShape();
     for (let i = 0; i < ekgWave.length; i++) {

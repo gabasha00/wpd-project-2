@@ -1,16 +1,51 @@
 {% extends "base.njk" %}
 
 {% block content %}
+<section class="location-page">
+
+  <nav class="page-nav">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/honolulu">Honolulu</a>
+    <a href="/sf">San Francisco</a>
+  </nav>
+
+  <p class="wave-title">Tokyo</p>
+  <div id="ekg"></div>
+  <div class="data-info">
+  <p class="data-line ocean-label">Ocean Data</p>
+  <p class="data-line quake-label">Seismic Activity Data</p>
+</div>
+<div class="facts-container">
+  <button class="facts-btn">Facts <span class="facts-arrow">&#x25BE;</span></button>
+
+  <div class="facts-content">
+    <p>Near Japan, warm and cold ocean currents collide, creating one of the most productive marine environments on Earth,
+        housing 15% of the world's sea species in just 1% of the ocean.</p>
+
+    <p>Tokyo lies at the intersection of 4 tectonic plates.
+         The constant movement beneath the surface produces around 1,500 earthquakes annually.</p>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+  <script src="/js/tokyo-lines.js"></script>
 
 
-<p class="wave-title">Tokyo</p>
-<div id="ekg"></div>
+<script>
+  const btn = document.querySelector(".facts-btn");
+  const content = document.querySelector(".facts-content");
+  const arrow = document.querySelector(".facts-arrow");
 
-<!-- Link to p5, make sure this is in every location.njk file -->
-<script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
-<script src="/js/tokyo-lines.js"></script>
-
-
-
-
+  btn.addEventListener("click", function () {
+    if (content.style.display == "block") {
+      content.style.display = "none";
+      arrow.innerHTML = "&#x25BE;";
+    } else {
+      content.style.display = "block";
+      arrow.innerHTML = "&#x25B4;";
+    }
+  });
+</script>
+</section>
 {% endblock %}

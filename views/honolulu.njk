@@ -1,14 +1,51 @@
 {% extends "base.njk" %}
 
 {% block content %}
+<section class="location-page">
+
+  <nav class="page-nav">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/sf">San Francisco</a>
+    <a href="/tokyo">Tokyo</a>
+  </nav>
 
 <p class="wave-title">Honolulu</p>
 <div id="ekg"></div>
+<div class="data-info">
+  <p class="data-line ocean-label">Ocean Data</p>
+  <p class="data-line quake-label">Seismic Activity Data</p>
+</div>
+<div class="facts-container">
+  <button class="facts-btn">Facts <span class="facts-arrow">&#x25BE;</span></button>
 
+  <div class="facts-content">
+    <p> Surrounded by deep Pacific waters, Hawai‘i’s coastlines are shaped by long-traveling swells and clear, 
+        low-nutrient water that supports vibrant coral reef ecosystems. About 23% of Hawaii’s reef fish are found nowhere else on earth.</p>
+
+    <p>The Hawaiian Islands are volcanic, formed over roughly 70 million years by a stationary hot spot beneath the moving Pacific Plate. 
+        As the plate moves northwest, new volcanoes form while old ones erode and sink, 
+        creating a 1,600-mile chain of 132+ islands. </p>
+  </div>
+</div>
 <!-- Link to p5, make sure this is in every location.njk file -->
 <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
 <script src="/js/honolulu-lines.js"></script>
+<script>
+  const btn = document.querySelector(".facts-btn");
+  const content = document.querySelector(".facts-content");
+  const arrow = document.querySelector(".facts-arrow");
 
+  btn.addEventListener("click", function () {
+    if (content.style.display == "block") {
+      content.style.display = "none";
+      arrow.innerHTML = "&#x25BE;";
+    } else {
+      content.style.display = "block";
+      arrow.innerHTML = "&#x25B4;";
+    }
+  });
+</script>
 
 
 {% endblock %}

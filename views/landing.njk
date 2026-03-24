@@ -2,24 +2,26 @@
 
 {% block content %}
 
-<div class="landing-container">
+<a href="/about" class="about-btn">ABOUT</a>
 
-  <!-- Main entry -->
+<section class="landing-page">
+  <div class="landing-container">
 
-  <!-- Wave source selection -->
+    <div class="hero-visual">
+      <img src="/assets/background.gif" class="hero-gif">
+      <h1 class="hero-title">The Earth Is Breathing</h1>
+    </div>
 
-  <div class="wave-source">
-    <img src="/assets/circle-earth.svg" alt="Earth" class="earth spin">
-    <p class="wave-label">Choose Locations</p>
+    <div class="wave-source">
+      <p class="wave-label">Choose a Location</p>
 
-    <div class="wave-buttons">
-      <a class="location-btn" href="/honolulu">Honolulu</a>
-      <a class="location-btn" href="/tokyo">Tokyo</a>
-      <a class="location-btn" href="/sf">San Francisco</a>
+      <div class="wave-buttons">
+        <a class="location-btn" href="/honolulu">Honolulu</a>
+        <a class="location-btn" href="/tokyo">Tokyo</a>
+        <a class="location-btn" href="/sf">San Francisco</a>
+      </div>
     </div>
 
   </div>
-
-</div>
-
+</section>
 {% endblock %}

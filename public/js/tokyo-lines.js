@@ -66,8 +66,7 @@ function draw() {
     clear();
     
     //Wave line styling
-    stroke(3, 26, 28);
-    strokeWeight(3);
+    stroke(29, 120, 116); 
     noFill();
     
     //Effect to make the line sway / always stay in motion
@@ -106,7 +105,7 @@ function draw() {
     }
 
     //Draw earthquake line
-    stroke(3, 26, 28); //Keep same color as wave line
+    stroke(242, 95, 92); 
     strokeWeight(3);
     beginShape();
     for (let i = 0; i < ekgWave.length; i++) {

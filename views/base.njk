@@ -2,23 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
 
-  <!-- Google font links -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&family=Iceland&display=swap" rel="stylesheet">
 
-  <title>The Earth is Breathing</title>
-
+  <title>The Earth Is Breathing</title>
 </head>
 <body>
-   <header>
-   <h1 class="wavy">THE EARTH IS BREATHING</h1>
-   <p class="sub-head">A project by Kris, Gabrielle and Scott</p>
-   </header>
+  <div class="site-shell">
+    <main>
+      {% block content %}{% endblock %}
+    </main>
 
-  {% block content %}{% endblock %}
-  <script src="/js/wave.js"></script>
+    <footer class="site-footer">
+      A project by Kris, Gabrielle and Scott
+    </footer>
+  </div>
 </body>
 </html>

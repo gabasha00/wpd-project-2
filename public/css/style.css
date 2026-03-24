@@ -1,96 +1,373 @@
-    body {
-      margin: 0;
-      background: #cbf7f5;
-      color: black;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    h1 {
-      width: 100%;
-      padding: 10px;
-      margin-left: 20px;
-      font-size: 50px;
-      font-family: "Martian Mono", monospace;
-    }
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
 
-    .sub-head {
-      width: 100%;
-      margin-left: 30px;
-      font-size: 20px;
-      font-family: "Martian Mono", monospace;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  color: #f5f5f5;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
 
-    .wavy span {
-      display: inline-block;
-      animation: wave 4s infinite ease-in-out;
-    }
+img {
+  max-width: 100%;
+  height: auto;
+}
 
-    @keyframes wave {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+canvas {
+  max-width: 100%;
+  height: auto;
+}
 
-    .earth {
-      margin-top: -200px;
-      width: 300px;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    .spin {
-      animation: spinning 25s linear infinite;
-    }
+.site-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-    @keyframes spinning {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
+main {
+  flex: 1;
+}
 
-    a.enter-btn {
-      margin-top: 30px;
-      padding: 10px 20px;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-    }
+/* HOMEPAGE */
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 100px 20px;
+  box-sizing: border-box;
+  position: relative;
+}
 
-    .landing-container {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-    }
+.landing-container {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-    .wave-source {
-      text-align: center;
-    }
+.hero-visual {
+  position: relative;
+  width: 42vw;
+  max-width: 520px;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .wave-label {
-      width: 100%;
-      font-size: 30px;
-      font-family: "Martian Mono", monospace;
-    }
+.hero-gif {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-    .wave-buttons {
-      display: flex;
-      gap: 20px;
-    }
+.hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: 80%;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Iceland", sans-serif;
+  font-size: 4vw;
+  line-height: 1;
+  letter-spacing: 4px;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
 
-    .location-btn {
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 4px;
-      font-family: "Martian Mono", monospace;
-      font-size: 20px;
-    }
+.wave-source {
+  margin-top: 30px;
+  text-align: center;
+}
 
-    /* Individual styling tags for each location page */
-    .wave-title{
-      margin-left: 20px;
-      font-size: 40px;
-      font-family: "Martian Mono", monospace;
-    }
+.wave-label {
+  margin-bottom: 15px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wave-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.location-btn {
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.8;
+  transition: 0.25s ease;
+}
+
+.location-btn:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+.site-footer {
+  width: 100%;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* LOCATION PAGES */
+.location-page {
+  min-height: calc(100vh - 70px);
+  padding: 40px 20px;
+}
+
+.wave-title {
+  text-align: center;
+  font-family: "Iceland", sans-serif;
+  font-size: 40px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+#ekg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-btn {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-decoration: none;
+  font-family: "Martian Mono", monospace;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 5px;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.about-btn:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.about-text {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.85;
+  width: 100%;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+}
+
+.page-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+  padding-top: 10px;
+}
+
+.page-nav a {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  transition: 0.25s ease;
+}
+
+.page-nav a:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.data-info {
+  width: 100%;
+  max-width: 800px;
+  margin: 25px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: center;
+}
+
+.ocean-label {
+  color: rgb(29, 120, 116);
+}
+
+.quake-label {
+  color: rgb(242, 95, 92);
+}
+
+.facts-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.facts-btn {
+  background: none;
+  border: none;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}
+
+.facts-content {
+  margin: 15px auto 0 auto;
+  display: none;
+  max-width: 700px;
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.facts-content p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.facts-arrow {
+  margin-left: 6px;
+}
+
+/* MOBILE / SMALLER SCREENS */
+@media (max-width: 700px) {
+  .landing-page {
+    padding: 30px 15px 80px 15px;
+  }
+
+  .landing-container {
+    padding-top: 60px;
+  }
+
+  .hero-visual {
+    width: 80vw;
+    min-width: 0;
+  }
+
+  .hero-title {
+    font-size: 8vw;
+    letter-spacing: 2px;
+    width: 90%;
+  }
+
+  .wave-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .location-btn {
+    font-size: 14px;
+  }
+
+  .about-btn {
+    top: 50px;
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
+
+  .wave-title {
+    font-size: 30px;
+    letter-spacing: 3px;
+  }
+
+  .about-text {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .page-nav {
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .page-nav a {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .data-info {
+    gap: 12px;
+    padding: 0 10px;
+  }
+
+  .facts-btn {
+    font-size: 12px;
+  }
+
+  .facts-content {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .facts-content p {
+    font-size: 14px;
+  }
+
+  .site-footer {
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 12px 10px;
+  }
+}
+/* scrollbar google,safari,edge etc.*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04); /* very subtle lighter than black */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12); /* darker + soft contrast */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2); /* slightly brighter on hover */
+}
+/* scrollbar firefox */
+html {
+  scrollbar-color: rgba(255, 255, 255, 0.12) rgba(255, 255, 255, 0.04);
+  scrollbar-width: thin;
+}
