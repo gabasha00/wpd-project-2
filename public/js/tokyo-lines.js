@@ -10,12 +10,12 @@ let currentWave = 1 //Fallback value for the line
 let eqHistory = [];       //Array to store earthquake magnitudes
 let currentEQ = 0;        //Fallback spike value
 let eqLineOffset = 150;   //Distance between wave line and earthquake line
+let eqWave = []           //Array to store earthquake EKG points
 
 //Function to parse NOAA wave data
 function waveData(text) {
     let lines = text.trim().split("\n");
 
-    //Skip header rows (first 2 lines usually)
     //NOAA data is translated into text lines
     for (let i = 2; i < lines.length; i++) {
         let parts = lines[i].trim().split(/\s+/);
@@ -67,6 +67,7 @@ function draw() {
     
     //Wave line styling
     stroke(29, 120, 116); 
+    strokeWeight(3);
     noFill();
     
     //Effect to make the line sway / always stay in motion
@@ -104,22 +105,40 @@ function draw() {
         ekgWave.splice(0, 1);
     }
 
-    //Draw earthquake line
+    //Draw earthquake line as EKG
     stroke(242, 95, 92); 
     strokeWeight(3);
+    noFill();
+
+    let eqY = ekgLine + eqLineOffset;
+    let eqSpikeFrames = 20;
+
+    //Pick magnitude from eqHistory over time
+    if (eqHistory.length > 0) {
+        let eqIndex = floor(frameCount * 0.2) % eqHistory.length;
+        currentEQ = eqHistory[eqIndex];
+    }
+
+    //Map magnitude to spike height
+    let eqSpikeHeight = map(currentEQ, 0, 5, 10, 100);
+    let eqIntervals = map(currentEQ, 0, 5, 140, 50); //slightly slower than wave line
+
+    //EKG-style spike
+    if (frameCount % eqIntervals < eqSpikeFrames) {
+        let t = map(frameCount % eqIntervals, 0, eqSpikeFrames, 0, PI);
+        eqY -= eqSpikeHeight * sin(t) * sin(t);
+    }
+
+    eqWave.push(eqY);
+
+    //Draw earthquake EKG line
     beginShape();
-    for (let i = 0; i < ekgWave.length; i++) {
-        //Pick magnitude from eqHistory over time
-        if (eqHistory.length > 0) {
-            let eqIndex = floor(frameCount * 0.2) % eqHistory.length;
-            currentEQ = eqHistory[eqIndex];
-        }
-
-        //Map magnitude to spike height
-        let eqSpike = map(currentEQ, 0, 5, 10, 100);
-
-        //Draw the quake line below the wave line using eqLineOffset
-        vertex(i, ekgLine + eqLineOffset - eqSpike);
+    for (let i = 0; i < eqWave.length; i++) {
+        vertex(i, eqWave[i]);
     }
     endShape();
+
+    if (eqWave.length > width) {
+        eqWave.splice(0, 1);
+    }
 }
