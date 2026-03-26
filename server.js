@@ -97,5 +97,5 @@ app.get("/api/earthquakes", async (req, res) => {
 
 const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+  console.log(`Server is running at http://206.189.189.226:3000/`);
 });
